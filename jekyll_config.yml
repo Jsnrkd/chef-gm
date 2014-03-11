@@ -1,0 +1,37 @@
+# Table of Contents
+# -----------------
+
+toc:
+  - head: /index.html
+    body: []
+
+  - head: /projects/index.html
+    body:
+     - /projects/webneers/index.html
+
+  - head: /servers/index.html
+    body:
+     - /servers/provisioning.html
+
+  - head: /qa/index.html
+    body:
+     - /qa/bug_tracking.html
+
+# Jekyll Configuration
+# --------------------
+
+source      : src/pages
+posts       : ../posts
+layouts     : ../layouts
+includes    : ../includes
+
+destination : dist
+plugins     : jekyll_plugins
+
+keep_files  : [ 'css', 'js', 'images' ]
+
+permalink   : /:categories/:year/:month/:day/:title
+
+safe        : false
+pygments    : true
+markdown    : kramdown
