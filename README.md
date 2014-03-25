@@ -1,10 +1,9 @@
-#YLIapps documentation
-
-Provides versioned, static documentation for all aspects of YLIapps development.
-
+#Jekyll doc contribution overview
 
 Jekyll Docs
 ===========
+
+This is a fork from [here](https://github.com/untyped/jekyll-docs)
 
 Template for building a documentation site using Jekyll.
 
@@ -28,7 +27,7 @@ To get started, install Bundler:
 
 Use Bundler to update the dependencies of the help site:
 
-    cs ./path-to-repo-root
+    cd ./path-to-repo-root
     npm install
     bower install
     bundle install
@@ -39,7 +38,7 @@ Finally, you have the following commands at your disposal:
     grunt build
 
     # Watch everything and continuously rebuild the site (preview at http://localhost:4000):
-    grunt watch
+    grunt serve
 
     # Reploy the site to your web server (requires you to customise Gruntfile.coffee):
     grunt deploy

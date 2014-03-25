@@ -2,7 +2,7 @@
 
 <html lang="en">
   <head>
-    <title>YLIapps Overview</title>
+    <title>Chef-gm</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +10,12 @@
   </head>
   <body>
     <div class="container">
-      <h1>YLIapps Overview</h1>
+      <h1>Chef-gm</h1>
 
 
   <p class="lead">
     <small>
-      Documentation for YLIapps
+      A suggested workflow using Chef.
     </small>
   </p>
 
@@ -24,249 +24,20 @@
 
 <div class="row">
   <div class="col-lg-3 col-md-3">
-    <ul class="nav-toc"><li class="active nav-toc-group"><a class="nav-toc-heading" href="/index.html">YLIapps Overview</a><ul class="active nav-toc-menu"></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/projects/index.html">Projects</a><ul class="nav-toc-menu"><li><a href="/projects/webneers/index.html">WebNEERS</a></li></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/servers/index.html">Servers</a><ul class="nav-toc-menu"><li><a href="/servers/provisioning.html">Provisioning</a></li></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/qa/index.html">QA</a><ul class="nav-toc-menu"><li><a href="/qa/bug_tracking.html">Bug Tracking</a></li></ul></li></ul>
+    <ul class="nav-toc"><li class="active nav-toc-group"><a class="nav-toc-heading" href="/index.html">Chef-gm</a><ul class="active nav-toc-menu"></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/gs/getting_started.html">Getting Started</a><ul class="nav-toc-menu"></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/servers/index.html">Server Automation</a><ul class="nav-toc-menu"><li><a href="/servers/chef_solo_workflow.html">Chef Solo Workflow</a></li><li><a href="/servers/converting_to_chef.html">Converting to Chef</a></li><li><a href="/servers/environments.html">Chef Solo Environments</a></li><li><a href="/servers/provision_rackspace.html">Provisioning Rackspace</a></li></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/qa/index.html">QA</a><ul class="nav-toc-menu"><li><a href="/qa/bug_tracking.html">Bug Tracking</a></li></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/projects/index.html">Projects</a><ul class="nav-toc-menu"></ul></li></ul>
   </div>
   <div id="content" class="col-lg-9 col-md-9">
-    <p>Welcome to the documentation for all that is YLIapps. This is where you will find workflows and protocols for development of YLI projects.</p>
+    <p><em>Updated: March 11, 2014 </em></p>
+    <p>The purpose of this site is to share philosophies on web application development life cycles and workflow.  I hope that it provides perspective to young developers and those considering starting a software company with little experience.  </p>
 
-<h1 id="target-deployment-environment">Target Deployment Environment</h1>
+<p>This site focuses on ideas and use cases rather than specific language overviews like introduction to Javascript.</p>
 
-<ul>
-  <li>Ubuntu 12.04 Precise 64bit</li>
-  <li>Apache 2.2</li>
-  <li>MySQL 5.5</li>
-  <li>PHP 5.4</li>
-  <li>?Redis?</li>
-  <li>?Memcache?</li>
-</ul>
+<p>This site is intended for those who are already aware of the basics of web applications topics like HTML, CSS, Javascript, SQL and system administration.  This site will attempt to provide a bigger picture to the moving parts of web applications that will be useful to those looking for a use case.  like scope, develop, test, measure, deploy.</p>
 
-<h1 id="application-description">Application Description</h1>
+<p>The first few sections are tutorials that will show you proven ways to complete full stack development tasks.</p>
 
-<ul>
-  <li>Laravel 4.1</li>
-  <li>…</li>
-</ul>
 
-<h1 id="development-environment">Development Environment</h1>
-
-<p>The next steps will guide you through an automated development environment that has been configured using Vagrant and Chef-Solo to run in an Ubuntu virtual machine closely matching production.  When you are finished, your development environment will have high parity with production and other developers’ environments.  You should also be able to get up and ready to develop in about an hour of beginning this tutorial.</p>
-
-<h3 id="dependencies">Dependencies</h3>
-<ul>
-  <li>Ruby 2.x &gt;= (<a href="https://rvm.io/">RVM</a> recommended) 
-    <ul>
-      <li>(Gems: Capistrano 3.x &gt;=, berkshelf 3.x &gt;= )</li>
-    </ul>
-  </li>
-  <li><a href="https://www.virtualbox.org/wiki/Downloads">Virtual Box</a></li>
-  <li><a href="http://vagrantup.com">Vagrant</a> 1.4.x &gt;= 
-    <ul>
-      <li>Plugins: <a href="https://github.com/berkshelf/vagrant-berkshelf">vagrant-berkshelf</a>, <a href="https://github.com/smdahlen/vagrant-hostmanager">vagrant-hostmanager</a></li>
-    </ul>
-  </li>
-  <li>git 1.8.x &gt;=</li>
-</ul>
-
-<h3 id="conifigure-ssh-keys">Conifigure SSH Keys</h3>
-
-<p>Configure your public/private key pair in your BitBucket account.</p>
-
-<h3 id="install-dependencies">Install Dependencies</h3>
-
-<p>The following applies to OSX 10.9 &gt;=</p>
-
-<h5 id="osx-developer-tools">OSX Developer Tools</h5>
-
-<pre><code># Ensure OSX developer tools are installed
-$ xcode-select --install
-</code></pre>
-
-<h5 id="ruby">Ruby</h5>
-<p>Ruby is required and <a href="https://rvm.io/">RVM</a> is the recommended way of managing your versions and gems.</p>
-
-<pre><code># Install RVM
-$ \curl -sSL https://get.rvm.io | bash -s stable
-$ rvm use 2.1.0 --default
-</code></pre>
-
-<p>Configure RVM if necessary.</p>
-
-<h5 id="gems">Gems</h5>
-<p>//todo use bundler instead
-<a href="http://berkshelf.com">Berkshelf</a> - Chef cookbook dependency manager
-<a href="http://capistranorb.com/documentation/getting-started/installation/">Capistrano</a> - Application Deployment</p>
-
-<pre><code>$ gem install berkshelf --no-ri --no-rdoc
-# If this hangs, kill the process and rerun the command.
-
-$ gem install capistrano  --no-ri --no-rdoc
-</code></pre>
-
-<h5 id="vagrant-plugins">Vagrant Plugins</h5>
-
-<pre><code>$ vagrant plugin install vagrant-hostmanager
-$ vagrant plugin install vagrant-berkshelf
-</code></pre>
-
-<h3 id="provision-virtual-machine">Provision Virtual Machine</h3>
-
-<p>You must have installed all depencies from the previous section for these commands to complete.</p>
-
-<pre><code>$ git clone --recursive git@bitbucket.org:MrRoboto/books.git
-$ cd {project_directory}/books-chef
-$ vagrant up
-</code></pre>
-
-<p>Provisioning for the first time can take 3-15 minutes depending on your internet connection speed.  You may be prompted for your local user password to edit the hosts file.</p>
-
-<p>If the books-chef directory is empty, pull the books-chef git submodule from the top of the working directory.</p>
-
-<pre><code>$ git submodule update --init --recursive
-</code></pre>
-
-<h3 id="run-composer">Run Composer</h3>
-<p>Third party libraries are managed with <a href="https://getcomposer.org/">Composer</a> and aren’t stored in the application repo so you must install them.</p>
-
-<pre><code># from vagrant ssh and cd /var/www/books
-$ composer install
-</code></pre>
-
-<h3 id="provision-and-seed-database">Provision and Seed Database</h3>
-
-<pre><code># from vagrant ssh and cd /var/www/books
-$ php artisan migrate
-$ php artisan db:seed
-</code></pre>
-
-<h3 id="mysql-details">MySQL Details</h3>
-
-<p><strong>MySQL Host:</strong> 172.22.22.22,
-<strong>User:</strong> Root,
-<strong>Password:</strong> Root,
-<strong>Port:</strong> 3306</p>
-
-<h3 id="ssh-details">SSH Details</h3>
-<p><strong>Host:</strong> 172.22.22.22,
-<strong>User:</strong> vagrant,
-<strong>Password:</strong> vagrant</p>
-
-<h2 id="dev-environment-conclusion">Dev Environment Conclusion</h2>
-
-<ul>
-  <li>App is now available at books.dev, www.books.dev and 172.22.22.22</li>
-  <li>Default App user is jmayhak@gmail.com password: P@ssw0rd!</li>
-</ul>
-
-<h1 id="database-setup">Database Setup</h1>
-
-<h3 id="migrate-schema">Migrate Schema</h3>
-<p>Migrates the database schema to latest migration.  Migrations are available through <a href="http://laravel.com/docs/artisan">Artisan</a>. </p>
-
-<pre><code>$ cd /var/www/books
-$ php artisan migrate
-</code></pre>
-
-<h3 id="seed-database">Seed Database</h3>
-<p>Dummy data is generated with <a href="https://github.com/fzaninotto/Faker">Faker</a>. </p>
-
-<pre><code>$ cd /var/www/books
-$ php artisan db:seed
-</code></pre>
-
-<h1 id="application-deployment">Application Deployment</h1>
-
-<p><a href="http://capistranorb.com/">Capistrano</a> is used for application deployment.</p>
-
-<ol>
-  <li>Configure SSH keys with the target server and the repository.</li>
-</ol>
-
-<h3 id="deploy">Deploy</h3>
-
-<pre><code>$ cd {project_directory}
-$ cap {staging, production} deploy
-</code></pre>
-
-<h3 id="rollback">Rollback</h3>
-
-<h1 id="server-provisioning">Server Provisioning</h1>
-
-<h2 id="install-packages-chefhttpdocsopscodecominstallworkstationhtml">Install Packages <a href="http://docs.opscode.com/install_workstation.html">Chef</a></h2>
-<p>//bundler
-    $ gem install chef –no-ri –no-rdoc
-    $ gem install knife-solo –no-ri –no-rdoc
-    $ gem install foodcritic –no-ri –no-rdoc
-    $ gem install knife-digital_ocean –no-ri –no-rdoc</p>
-
-<p>Configure SSH keys on digital ocean</p>
-
-<p><a href="https://github.com/rmoriz/knife-digital_ocean">Knife-digital_ocean docs</a>
-<a href="https://github.com/matschaffer/knife-solo/wiki/Berkshelf-&amp;-Librarian-Chef-integration">Knife-solo berkshelf integration doc</a></p>
-
-<p>Configure ~/.chef/knife.rb or {project_directory}/books-chef/.chef/knife.rb</p>
-
-<p>Check that these settings are in the config</p>
-
-<pre><code>knife[:digital_ocean_client_id] = 'your_client_id'
-knife[:digital_ocean_api_key] = 'your_api_key'
-</code></pre>
-
-<p>Ensure you are configured correctly</p>
-
-<pre><code>cd ~/chef-repo
-knife digital_ocean droplet list
-</code></pre>
-
-<p>Provision</p>
-
-<pre><code>$ knife digital_ocean droplet create -N books-prod --ssh-keys 87619 --image 1505447 --location 1 --size 66 --solo
-</code></pre>
-
-<p>Update server config
-    $ knife solo cook root@192.241.138.212 nodes/books-prod.json</p>
-
-<h5 id="things-to-define">Things to define</h5>
-
-<h3 id="debugging">Debugging</h3>
-
-<h3 id="profiling">Profiling</h3>
-
-<h3 id="committing-git-workflow">Committing (git Workflow)</h3>
-
-<h3 id="back-end-patterns">Back End Patterns</h3>
-
-<h3 id="front-end-patterns">Front End Patterns</h3>
-
-<h3 id="bug-tracking">Bug Tracking</h3>
-
-<h3 id="task-tracking">Task Tracking</h3>
-
-<h3 id="qa">QA</h3>
-
-<h3 id="testing">Testing</h3>
-
-<h3 id="monitoring">Monitoring</h3>
-
-<h3 id="documenting">Documenting</h3>
-
-<h3 id="dev-tools">Dev Tools</h3>
-
-<h3 id="communication">Communication</h3>
-<p>####Contact Info
-####Meetings</p>
-
-<h3 id="disaster-recovery">Disaster Recovery</h3>
-
-<h3 id="user-management">User Management</h3>
-
-<h3 id="responsibilities">Responsibilities</h3>
-
-<h1 id="links">Links</h1>
-<p><a href="http://phptherightway.com/">Php The Right Way</a>
-<a href="https://www.digitalocean.com/community/">Digital Ocean</a></p>
-
-
-    <ul class="nav-pager"><li><a class="btn btn-primary" href="/projects/index.html">Next &raquo;</a></li></ul>
+    <ul class="nav-pager"><li><a class="btn btn-primary" href="/gs/getting_started.html">Next &raquo;</a></li></ul>
   </div>
 </div>
 
