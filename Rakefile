@@ -18,7 +18,7 @@ require 'rubygems'
     desc "Generate and publish blog to gh-pages"
     task :publish do
       Dir.mktmpdir do |tmp|
-        system "mv chef-gm/* #{tmp}"
+        system "mv dist/* #{tmp}"
         system "git checkout gh-pages"
         system "rm -rf *"
         system "mv #{tmp}/* ."
