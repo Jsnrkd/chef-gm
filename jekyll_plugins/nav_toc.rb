@@ -26,7 +26,7 @@ module Jekyll
       if head && body
         if head_page
           ans += '<li' + render_active([ head_page ], curr, 'nav-toc-group') + '>'
-          ans += render_link(head_page, 'nav-toc-heading')
+          ans += render_link(head_page, 'nav-toc-heading', site)
         else
           ans += '<li class="nav-toc-group">'
           ans += '<span class="nav-toc-heading">' + head + '</span>'
@@ -34,7 +34,7 @@ module Jekyll
 
         ans += '<ul' + render_active(all_pages, curr, 'nav-toc-menu') + '>'
         body_pages.each do |page|
-          ans += '<li' + render_active([ page ], curr) + '>' + render_link(page, nil) + '</li>'
+          ans += '<li' + render_active([ page ], curr) + '>' + render_link(page, nil, site) + '</li>'
         end
         ans += '</ul>'
 
@@ -48,10 +48,10 @@ module Jekyll
       path && site.pages.find { |page| page.url == path }
     end
 
-    def render_link(page, css_class = nil)
+    def render_link(page, css_class = nil, site)
       ans = ''
       if page
-        ans += '<a' + (if css_class then ' class="' + css_class + '"' else '' end) + ' href="' + page.url + '">'
+        ans += '<a' + (if css_class then ' class="' + css_class + '"' else '' end) + ' href="'+ site.baseurl + page.url + '">'
         ans += (page.data['title'] || page.url)
         ans += '</a>'
       else

@@ -1,6 +1,6 @@
 ---
 layout: page
-title:  Debugging with XDebug
+title:  Debugging PHP with XDebug
 lead:   Step through code to find problems
 ---
 
@@ -9,7 +9,7 @@ lead:   Step through code to find problems
 
 **Audience:** Application Developers
 
-**Dependencies:** PHP with xdebug installed, PHPStorm IDE
+**Dependencies:** PHP with XDebug installed, PHPStorm IDE
 
 **Optional:** 
 

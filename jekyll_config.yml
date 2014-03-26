@@ -15,6 +15,10 @@ toc:
      - /servers/environments.html
      - /servers/provision_rackspace.html
 
+  - head: /debugging/index.html
+    body:
+     - /debugging/xdebug.html
+
   - head: /qa/index.html
     body:
      - /qa/bug_tracking.html
@@ -26,6 +30,8 @@ toc:
 # Jekyll Configuration
 # --------------------
 
+baseurl    : 'chef-gm'
+#baseurl     : ''
 source      : src/pages
 posts       : ../posts
 layouts     : ../layouts
