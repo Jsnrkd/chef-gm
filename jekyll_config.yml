@@ -30,7 +30,7 @@ toc:
 # Jekyll Configuration
 # --------------------
 
-baseurl    : 'chef-gm'
+baseurl    : '/chef-gm'
 #baseurl     : ''
 source      : src/pages
 posts       : ../posts
