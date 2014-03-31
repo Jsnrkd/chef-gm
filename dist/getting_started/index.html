@@ -2,7 +2,7 @@
 
 <html lang="en">
   <head>
-    <title>Provisioning</title>
+    <title>Getting Started</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,12 +20,12 @@
   </head>
   <body>
     <div class="container">
-      <h1>Provisioning</h1>
+      <h1>Getting Started</h1>
 
 
   <p class="lead">
     <small>
-      Automatic and Reproducible
+      Stuff you need to know
     </small>
   </p>
 
@@ -35,24 +35,31 @@
 
 <div class="row">
   <div class="col-lg-3 col-md-3">
-    <ul class="nav-toc"><li class="nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/index.html">Chef-gm</a><ul class="nav-toc-menu"></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/getting_started/index.html">Getting Started</a><ul class="nav-toc-menu"></ul></li><li class="active nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/servers/index.html">Provisioning</a><ul class="active nav-toc-menu"><li><a href="/chef-gm/servers/environments.html">Chef Solo Environments</a></li><li><a href="/chef-gm/servers/provision_rackspace.html">Provisioning Rackspace</a></li></ul></li></ul>
+    <ul class="nav-toc"><li class="nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/index.html">Chef-gm</a><ul class="nav-toc-menu"></ul></li><li class="active nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/getting_started/index.html">Getting Started</a><ul class="active nav-toc-menu"></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/servers/index.html">Provisioning</a><ul class="nav-toc-menu"><li><a href="/chef-gm/servers/environments.html">Chef Solo Environments</a></li><li><a href="/chef-gm/servers/provision_rackspace.html">Provisioning Rackspace</a></li></ul></li></ul>
   </div>
   <div id="content" class="col-lg-9 col-md-9">
-    <p><em>Updated: March 25, 2014 </em></p>
+    <p><em>Updated: March 30, 2014 </em></p>
     <p>During the application development cycle you will need some combination of development, staging, testing, production, and monitoring servers.  Managing a group of servers gets old pretty quick when you have more than one or two.  A sane way of managing multiple servers is through Chef Solo.  As you’ll see, the <a href="https://github.com/Jsnrkd/chef-gm">Chef-gm</a> project comes with a pre-configured example that you can run on a virtual machine or a remote VPS provider.</p>
 
-<h1 id="vps-providers">VPS Providers</h1>
-<p>There are a many VPS solutions out there.  I recommend the following and will try to provide tutorials for each:</p>
+<p>To follow along, here are the things you should minimally install.</p>
 
-<ul>
-  <li>AWS EC2</li>
-  <li>Digital Ocean</li>
-  <li>Linode</li>
-  <li>Rackspace</li>
-</ul>
+<h1 id="chef-gm-workflow">Chef-gm Workflow</h1>
+
+<p>This is a simplification of the steps involved</p>
+
+<ol>
+  <li>Fork <a href="https://github.com/Jsnrkd/chef-gm">Chef-gm</a> on Github.</li>
+  <li>Install dependencies</li>
+  <li>Provision the test project with Vagrant in a local VM.</li>
+  <li>Configure your environment attributes for your custom application</li>
+  <li>Configure your run node run list</li>
+  <li>Provision</li>
+  <li>Return to step 4</li>
+</ol>
 
 
-    <ul class="nav-pager"><li><a class="btn btn-primary" href="/getting_started/index.html">&laquo; Prev</a></li><li><a class="btn btn-primary" href="/servers/environments.html">Next &raquo;</a></li></ul>
+
+    <ul class="nav-pager"><li><a class="btn btn-primary" href="/index.html">&laquo; Prev</a></li><li><a class="btn btn-primary" href="/servers/index.html">Next &raquo;</a></li></ul>
   </div>
 </div>
       <script src="/js/site.js"></script>

@@ -5,27 +5,27 @@ toc:
   - head: /index.html
     body: []
 
-  - head: /gs/getting_started.html
-    body: []
+  - head: /getting_started/index.html
+    body: [] 
+     # - /getting_started/chef_solo.html
 
   - head: /servers/index.html
     body:
-     - /servers/chef_solo_workflow.html
-     - /servers/converting_to_chef.html
+     # - /servers/converting_to_chef.html
      - /servers/environments.html
      - /servers/provision_rackspace.html
 
-  - head: /debugging/index.html
-    body:
-     - /debugging/xdebug.html
+  # - head: /debugging/index.html
+  #   body:
+  #    - /debugging/xdebug.html
 
-  - head: /qa/index.html
-    body:
-     - /qa/bug_tracking.html
+  # - head: /qa/index.html
+  #   body:
+  #    - /qa/bug_tracking.html
 
-  - head: /projects/index.html
-    body:
-     []
+  # - head: /projects/index.html
+  #   body:
+  #    []
 
 # Jekyll Configuration
 # --------------------

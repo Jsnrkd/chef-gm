@@ -17,3 +17,6 @@ lead:   Step through code to find problems
 
 
 Debugging complex application logic is difficult if you aren't using the right tools.
+
+
+It's likely you'll need to set the path mapping for the project.

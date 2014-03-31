@@ -1,5 +1,5 @@
 #Jekyll doc contribution overview
-
+This is the working directory for the gh-pages branch [http://jsnrkd.github.io/chef-gm](http://jsnrkd.github.io/chef-gm).
 Jekyll Docs
 ===========
 

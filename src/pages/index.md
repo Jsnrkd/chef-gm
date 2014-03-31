@@ -5,7 +5,8 @@ lead:   A suggested workflow using Chef.
 ---
 #Overview
 
-Chef-gm (general manager) is a workflow and boilerplate for developing web applications.  Its core is a combination of concepts built on Chef, Vagrant and Knife without having to put all the pieces together from scratch.  The purpose of Chef-gm is to provide a guide that will take your team from development to production using Chef and Vagrant.  The goal is to make your team's dev environments match each others and production closely while providing flexibility with deployment.
+
+Chef-gm (general manager) is a workflow and boilerplate for developing web applications.  Its core is a combination of concepts built on Chef, Vagrant and Knife without having to put all the pieces together from scratch.  The purpose of Chef-gm is to provide a guide that will take your team from development to production using Chef and Vagrant and ease the Chef learning curve.  The goal is to make your team's dev environments match each others and production closely while providing flexibility with deployment.  
 
 #Benefits
 
