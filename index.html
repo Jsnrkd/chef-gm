@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" media="screen" href="/chef-gm/css/screen.css">
+    <link rel="stylesheet" media="screen" href="/css/screen.css">
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -35,13 +35,83 @@
 
 <div class="row">
   <div class="col-lg-3 col-md-3">
-    <ul class="nav-toc"><li class="active nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/index.html">Chef-gm</a><ul class="active nav-toc-menu"></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/getting_started/index.html">Getting Started</a><ul class="nav-toc-menu"></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/servers/index.html">Provisioning</a><ul class="nav-toc-menu"><li><a href="/chef-gm/servers/environments.html">Chef Solo Environments</a></li><li><a href="/chef-gm/servers/provision_rackspace.html">Provisioning Rackspace</a></li></ul></li></ul>
+    <ul class="nav-toc"><li class="active nav-toc-group"><a class="nav-toc-heading" href="/index.html">Chef-gm</a><ul class="active nav-toc-menu"></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/getting_started/index.html">Getting Started</a><ul class="nav-toc-menu"><li><a href="/getting_started/dependencies.html">Dependencies</a></li></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/servers/index.html">Provisioning</a><ul class="nav-toc-menu"><li><a href="/servers/environments.html">Chef Solo Environments</a></li><li><a href="/servers/provision_rackspace.html">Provisioning Rackspace</a></li><li><a href="/servers/provision_digital_ocean.html">Provisioning Digital Ocean</a></li></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/database/index.html">Database</a><ul class="nav-toc-menu"><li><a href="/database/faker.html">Anonymize Dataset</a></li></ul></li></ul>
   </div>
   <div id="content" class="col-lg-9 col-md-9">
-    <p><em>Updated: March 26, 2014 </em></p>
+    <p><em>Updated: April 14, 2014 </em></p>
     <h1 id="overview">Overview</h1>
 
-<p>Chef-gm (general manager) is a workflow and boilerplate for developing web applications.  Its core is a combination of concepts built on Chef, Vagrant and Knife without having to put all the pieces together from scratch.  The purpose of Chef-gm is to provide a guide that will take your team from development to production using Chef and Vagrant and ease the Chef learning curve.  The goal is to make your team’s dev environments match each others and production closely while providing flexibility with deployment.  </p>
+<p>Chef-gm (general manager) is a workflow and boilerplate for developing web applications.  Its core is a combination of concepts built on Chef Solo, Vagrant and Knife for getting past the Chef learning curve.  The boilerplate is a set of scripted sysadmin tasks that automate your team’s development and production environments.  The workflow gives you some practical use cases and encourages further automation. Fork the <a href="https://github.com/Jsnrkd/chef-gm">Chef-gm</a> repository to get started.</p>
+
+<h1 id="features">Features</h1>
+
+<ul>
+  <li>Examples and tutorials on how to provision this stack locally and remotely</li>
+  <li>Highly configurable parameters for packages in one place</li>
+  <li>Installs a LAMP stack with separate configurations for development and production</li>
+  <li>Stack tuned with defaults and suggested scaling</li>
+  <li>Upgraded 12.04 packages from dotdeb.org like PHP 5.4</li>
+  <li>Creates users and ssh keys and configures authorized users.</li>
+  <li>Creates directories and permissions for users and applications.</li>
+  <li>Adds aliases for repetitive CLI commands.</li>
+  <li>Adds deploy user keys to bitbucket via API</li>
+  <li>Imports database from AWS S3 or file.</li>
+  <li>Basic security with OpenSSH, UFW, and Fail2ban </li>
+  <li>Disables root user access and requires key pair authentication with OpenSSH</li>
+  <li>Implements a default firewall allowing traffic from ports 80 and 443 with UFW</li>
+  <li>Prevents multiple failed login attempts with Fail2ban</li>
+  <li>Configures directories for Capistrano application deployment</li>
+  <li>Enables swap space on VPS providers</li>
+  <li>Syncs internal clock with NTP</li>
+  <li>Auto updates security and version updates of Ubuntu packages daily with unattended upgrades</li>
+  <li>Backs up databases daily to AWS S3 via cron.</li>
+  <li>Configures Xdebug for development.</li>
+  <li>Uses APC for opcode cache</li>
+  <li>Configures http basic auth for access of dashboards like APC</li>
+  <li>Installs Google’s Page Speed Apache module.</li>
+</ul>
+
+<h1 id="coming-soon">Coming soon</h1>
+
+<ul>
+  <li>Ops server role</li>
+  <li>Continuous integration with jenkins</li>
+  <li>Metrics with Graphite and Statsd</li>
+  <li>Nginx swappable recipe for apache</li>
+  <li>Event logging with Sentry</li>
+  <li>More use cases and tutorials</li>
+</ul>
+
+<h1 id="details">Details</h1>
+
+<p>A development to production workflow using</p>
+
+<ul>
+  <li>Git</li>
+  <li>Ruby</li>
+  <li>Ubuntu 12.04</li>
+  <li>Chef Solo</li>
+  <li>Vagrant</li>
+  <li>Virtual Box</li>
+  <li>Knife</li>
+  <li>Berkshelf</li>
+  <li>Capistrano</li>
+</ul>
+
+<h1 id="configured-packages">Configured Packages</h1>
+
+<ul>
+  <li>Apache</li>
+  <li>PHP</li>
+  <li>MySQL</li>
+  <li>s3mcmd</li>
+  <li>NTP</li>
+  <li>Fail2ban</li>
+  <li>UFW</li>
+  <li>OpenSSH</li>
+  <li>Unattended-upgrades</li>
+  <li>Swap</li>
+</ul>
 
 <h1 id="benefits">Benefits</h1>
 

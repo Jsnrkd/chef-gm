@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Anonymize Dataset</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="/css/screen.css">
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-4254311-25', 'jsnrkd.github.io');
+  ga('send', 'pageview');
+
+</script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Anonymize Dataset</h1>
+
+
+  <p class="lead">
+    <small>
+      Populate or anonymize a dataset for development with Faker
+    </small>
+  </p>
+
+
+  <em>Developed by <a href="http://twitter.com/jasonrikard">@JasonRikard</a></em>
+<hr>
+
+<div class="row">
+  <div class="col-lg-3 col-md-3">
+    <ul class="nav-toc"><li class="nav-toc-group"><a class="nav-toc-heading" href="/index.html">Chef-gm</a><ul class="nav-toc-menu"></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/getting_started/index.html">Getting Started</a><ul class="nav-toc-menu"><li><a href="/getting_started/dependencies.html">Dependencies</a></li></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/servers/index.html">Provisioning</a><ul class="nav-toc-menu"><li><a href="/servers/environments.html">Chef Solo Environments</a></li><li><a href="/servers/provision_rackspace.html">Provisioning Rackspace</a></li><li><a href="/servers/provision_digital_ocean.html">Provisioning Digital Ocean</a></li></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/database/index.html">Database</a><ul class="active nav-toc-menu"><li class="active"><a href="/database/faker.html">Anonymize Dataset</a></li></ul></li></ul>
+  </div>
+  <div id="content" class="col-lg-9 col-md-9">
+    <p><em>Updated: April 14, 2014 </em></p>
+    <p>Two common situations in a team’s workflow involve having a sample dataset and an anonymized production sized dataset.  It’s easy to generate these datasets using <a href="https://github.com/fzaninotto/Faker">Faker</a>.  Once you have a dataset, you can specify its location in your Chef-gm environments.  It will automatically populate the local databases of your developers when their development VMs are provisioned.  Glorious.</p>
+
+<h1 id="faker">Faker</h1>
+
+<p><a href="https://github.com/fzaninotto/Faker">Faker</a> is a PHP library that generates fake data for you.  There are versions for other languages too like <a href="http://faker.rubyforge.org/">Ruby</a>.  I use it to quickly create scripts that I can incorporate into my flow.  </p>
+
+<p>Once you begin using the library, you may run into a few nuances with string formatting and availability so feel free to manipulate the output to fit your column definition.  Here is an example detailed in Ruby by <a href="http://robots.thoughtbot.com/anonymizing-user-company-and-location-data-using">thoughtbot</a>.</p>
+
+<h1 id="boilerplate-example">Boilerplate Example</h1>
+
+<p>The best way to get started is by creating a new project and installing the library with composer.  Then, you are free to write your script.  I created a boilerplate to make this step faster called <a href="https://github.com/Jsnrkd/faker-this">faker-this</a>.</p>
+
+<p>Setup</p>
+
+<pre><code>$ git clone https://github.com/Jsnrkd/faker-this
+$ cd faker-this
+$ composer install
+</code></pre>
+
+<p>Code your logic</p>
+
+<pre><code>$ nano fake.php
+</code></pre>
+
+<p>Anonymize</p>
+
+<pre><code>$ php fake.php &lt;host&gt; &lt;mysql_user&gt; &lt;password&gt; &lt;dbPrefix&gt;
+</code></pre>
+
+<p>Distribute </p>
+
+<pre><code>$ mysqldump -u [user] -p[password] --all-databases | gzip &gt; fake_data.sql.gz
+</code></pre>
+
+<p>Import</p>
+
+<pre><code>$ gunzip &lt; fake_data.sql.gz | mysql -u [user] -p[password]
+</code></pre>
+
+<p>Keep configured project for later</p>
+
+<pre><code>$ rm -R .git
+$ git init
+$ git add --all
+$ git commit -am 'Initial commit of faker utility.'
+</code></pre>
+
+<p><em>Push remotely if desired.</em>	</p>
+
+<h1 id="distributing-the-dataset">Distributing the Dataset</h1>
+
+<h1 id="configuring-chef-gm">Configuring Chef-gm</h1>
+
+
+    <ul class="nav-pager"><li><a class="btn btn-primary" href="/database/index.html">&laquo; Prev</a></li></ul>
+  </div>
+</div>
+      <script src="/js/site.js"></script>
+    </div>
+  </body>
+</html>

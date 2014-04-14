@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Dependencies</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="/css/screen.css">
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-4254311-25', 'jsnrkd.github.io');
+  ga('send', 'pageview');
+
+</script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Dependencies</h1>
+
+
+  <p class="lead">
+    <small>
+      Get your machine ready to cook.
+    </small>
+  </p>
+
+
+  <em>Developed by <a href="http://twitter.com/jasonrikard">@JasonRikard</a></em>
+<hr>
+
+<div class="row">
+  <div class="col-lg-3 col-md-3">
+    <ul class="nav-toc"><li class="nav-toc-group"><a class="nav-toc-heading" href="/index.html">Chef-gm</a><ul class="nav-toc-menu"></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/getting_started/index.html">Getting Started</a><ul class="active nav-toc-menu"><li class="active"><a href="/getting_started/dependencies.html">Dependencies</a></li></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/servers/index.html">Provisioning</a><ul class="nav-toc-menu"><li><a href="/servers/environments.html">Chef Solo Environments</a></li><li><a href="/servers/provision_rackspace.html">Provisioning Rackspace</a></li><li><a href="/servers/provision_digital_ocean.html">Provisioning Digital Ocean</a></li></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/database/index.html">Database</a><ul class="nav-toc-menu"><li><a href="/database/faker.html">Anonymize Dataset</a></li></ul></li></ul>
+  </div>
+  <div id="content" class="col-lg-9 col-md-9">
+    <p><em>Updated: April 14, 2014 </em></p>
+    <p>To use this workflow, you’ll need to have some dependencies installed.  If you run into problems, double check the software versions for compatibility.</p>
+
+<p>OSX 
+Tested on 10.9.2, 4/1/2014</p>
+
+<h1 id="development-environment">Development Environment</h1>
+
+<p>The next steps will guide you through an automated development environment that has been configured using Vagrant and Chef-Solo to run in an Ubuntu virtual machine closely matching production.  When you are finished, your development environment will have high parity with production and other developers’ environments.  You should also be able to get up and ready to develop in about an hour of beginning this tutorial.</p>
+
+<h3 id="dependencies">Dependencies</h3>
+<ul>
+  <li>Ruby 2.x &gt;= (<a href="https://rvm.io/">RVM</a> recommended) 
+    <ul>
+      <li>(Gems: Capistrano 3.x &gt;=, berkshelf 3.x &gt;= )</li>
+    </ul>
+  </li>
+  <li><a href="https://www.virtualbox.org/wiki/Downloads">Virtual Box</a></li>
+  <li><a href="http://vagrantup.com">Vagrant</a> 1.4.x &gt;= 
+    <ul>
+      <li>Plugins: <a href="https://github.com/berkshelf/vagrant-berkshelf">vagrant-berkshelf</a>, <a href="https://github.com/smdahlen/vagrant-hostmanager">vagrant-hostmanager</a></li>
+    </ul>
+  </li>
+  <li>git 1.8.x &gt;=</li>
+</ul>
+
+<h3 id="install-dependencies">Install Dependencies</h3>
+
+<p>The following applies to OSX 10.9 &gt;=</p>
+
+<h5 id="osx-developer-tools">OSX Developer Tools</h5>
+
+<pre><code># Ensure OSX developer tools are installed
+$ xcode-select --install
+</code></pre>
+
+<h5 id="rvm-optional">RVM (optional)</h5>
+<p>Ruby is required and <a href="https://rvm.io/">RVM</a> is the recommended way of managing your versions and gems.</p>
+
+<pre><code># Install RVM
+$ \curl -sSL https://get.rvm.io | bash -s stable
+</code></pre>
+
+<p>Configure RVM if necessary.</p>
+
+<h5 id="install-packages-for-chefhttpdocsopscodecominstallworkstationhtml">Install Packages for <a href="http://docs.opscode.com/install_workstation.html">Chef</a></h5>
+
+<h5 id="gems">Gems</h5>
+
+<p><a href="http://berkshelf.com">Berkshelf</a> - Chef cookbook dependency manager
+<a href="http://capistranorb.com/documentation/getting-started/installation/">Capistrano</a> - Application Deployment</p>
+
+<pre><code>$ gem install berkshelf
+# If this hangs, kill the process and rerun the command.
+
+$ gem install capistrano
+</code></pre>
+
+<h5 id="vagrant-plugins">Vagrant Plugins</h5>
+
+<pre><code>$ vagrant plugin install vagrant-hostmanager
+$ vagrant plugin install vagrant-berkshelf
+</code></pre>
+
+<h5 id="homebrewhttpbrewsh"><a href="http://brew.sh/">homebrew</a></h5>
+
+<pre><code>ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+</code></pre>
+
+<h5 id="composerhttpsgetcomposerorg"><a href="https://getcomposer.org/">composer</a></h5>
+
+<pre><code>$ brew tap josegonzalez/homebrew-php
+$ brew install josegonzalez/php/composer
+</code></pre>
+
+<p>Install php 5.4 or greater</p>
+
+<pre><code>$ brew install php54-intl
+</code></pre>
+
+
+
+    <ul class="nav-pager"><li><a class="btn btn-primary" href="/getting_started/index.html">&laquo; Prev</a></li><li><a class="btn btn-primary" href="/servers/index.html">Next &raquo;</a></li></ul>
+  </div>
+</div>
+      <script src="/js/site.js"></script>
+    </div>
+  </body>
+</html>
