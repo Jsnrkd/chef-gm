@@ -1,0 +1,38 @@
+# Managed by Chef for <%= node['hostname'] %>
+
+<VirtualHost *:<%= @params[:server_port] || node['apache']['listen_ports'].first %>>
+  ServerName <%= @params[:server_name] %>
+  ServerAlias <% @params[:server_aliases].each do |a| %><%= a %> <% end %>
+  DocumentRoot <%= @params[:docroot] %>
+  ServerAdmin <%= node['apache']['contact'] %>
+  RewriteEngine On
+
+  <Directory <%= @params[:docroot] %>>
+    Options <%= [@params[:directory_options] || "FollowSymLinks" ].flatten.join " " %>
+    AllowOverride <%= [@params[:allow_override] || "None" ].flatten.join " " %>
+    Order allow,deny
+    Allow from all
+
+
+    RewriteEngine On
+    RewriteBase /
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.php [L]
+
+	<% node['apache']['env_vars'].each do |var, value| %>
+    <%= "SetEnv #{var} #{value}" %>
+	<% end %>
+  </Directory>
+
+
+  LogLevel info
+  ErrorLog <%= node['apache']['log_dir'] %>/<%= @params[:name] %>-error.log
+  CustomLog <%= node['apache']['log_dir'] %>/<%= @params[:name] %>-access.log combined
+
+  #LogFormat "%a %t %D %T %>s \"%r\" %b \"%{Referer}i\"" mycombined
+  #SetEnvIf Request_URI "\.(jpg|xml|png|gif|ico|js|css|swf|js?.|css?.)$" DontLog
+  #CustomLog  <%= node['apache']['log_dir'] %>/<%= @params[:name] %>-requests.log mycombined Env=!DontLog
+</VirtualHost>
+
+

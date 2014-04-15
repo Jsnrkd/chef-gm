@@ -1,0 +1,421 @@
+[PHP]
+engine = On
+short_open_tag = Off
+asp_tags = Off
+
+output_buffering = 4096
+
+;realpath_cache_size = 16k
+;realpath_cache_ttl = 120
+
+zend.enable_gc = On
+
+expose_php = off
+
+max_execution_time = 30
+max_input_time = 60
+
+memory_limit = 256M
+
+error_reporting = E_ALL & ~E_DEPRECATED
+display_errors = <%= node['php']['display_errors'] %>
+display_startup_errors = Off
+html_errors = Off
+log_errors = On
+
+register_argc_argv = Off
+
+post_max_size = 50M
+
+default_mimetype = "text/html"
+default_charset = "UTF-8"
+
+file_uploads = On
+;upload_tmp_dir =
+upload_max_filesize = 50M
+max_file_uploads = 20
+
+date.timezone = 'UTC'
+
+
+
+
+<% if node['php']['xdebug']['enable'] %>
+[XDebug]
+zend_extension = "<%= node['php']['xdebug']['zend_extension'] %>"
+xdebug.remote_enable = <%= node['php']['xdebug']['remote_enable'] %>
+xdebug.remote_connect_back= <%= node['php']['xdebug']['remote_connect_back'] %>
+xdebug.remote_host= <%= node['php']['xdebug']['remote_host'] %>
+xdebug.remote_port= <%= node['php']['xdebug']['remote_port'] %>
+xdebug.remote_handler= <%= node['php']['xdebug']['remote_handler'] %>
+xdebug.profiler_enable= <%= node['php']['xdebug']['profiler_enable'] %>
+xdebug.profiler_enable_trigger = <%= node['php']['xdebug']['profiler_enable_trigger'] %>
+xdebug.profiler_output_name= <%= node['php']['xdebug']['profiler_output_name'] %>
+xdebug.profiler_output_dir= "<%= node['php']['xdebug']['profiler_output_dir'] %>"
+<% end %>
+
+
+[Pdo]
+; Whether to pool ODBC connections. Can be one of "strict", "relaxed" or "off"
+; http://php.net/pdo-odbc.connection-pooling
+;pdo_odbc.connection_pooling=strict
+
+;pdo_odbc.db2_instance_name
+
+[Pdo_mysql]
+; If mysqlnd is used: Number of cache slots for the internal result set cache
+; http://php.net/pdo_mysql.cache_size
+pdo_mysql.cache_size = 2000
+
+; Default socket name for local MySQL connects.  If empty, uses the built-in
+; MySQL defaults.
+; http://php.net/pdo_mysql.default-socket
+pdo_mysql.default_socket=
+
+
+
+[MySQL]
+; Allow accessing, from PHP's perspective, local files with LOAD DATA statements
+; http://php.net/mysql.allow_local_infile
+mysql.allow_local_infile = On
+
+; Allow or prevent persistent links.
+; http://php.net/mysql.allow-persistent
+mysql.allow_persistent = On
+
+; If mysqlnd is used: Number of cache slots for the internal result set cache
+; http://php.net/mysql.cache_size
+mysql.cache_size = 2000
+
+; Maximum number of persistent links.  -1 means no limit.
+; http://php.net/mysql.max-persistent
+mysql.max_persistent = -1
+
+; Maximum number of links (persistent + non-persistent).  -1 means no limit.
+; http://php.net/mysql.max-links
+mysql.max_links = -1
+
+
+; Maximum time (in seconds) for connect timeout. -1 means no limit
+; http://php.net/mysql.connect-timeout
+mysql.connect_timeout = 60
+
+; Trace mode. When trace_mode is active (=On), warnings for table/index scans and
+; SQL-Errors will be displayed.
+; http://php.net/mysql.trace-mode
+mysql.trace_mode = Off
+
+[MySQLi]
+
+; Maximum number of persistent links.  -1 means no limit.
+; http://php.net/mysqli.max-persistent
+mysqli.max_persistent = -1
+
+; Allow accessing, from PHP's perspective, local files with LOAD DATA statements
+; http://php.net/mysqli.allow_local_infile
+;mysqli.allow_local_infile = On
+
+; Allow or prevent persistent links.
+; http://php.net/mysqli.allow-persistent
+mysqli.allow_persistent = On
+
+; Maximum number of links.  -1 means no limit.
+; http://php.net/mysqli.max-links
+mysqli.max_links = -1
+
+; If mysqlnd is used: Number of cache slots for the internal result set cache
+; http://php.net/mysqli.cache_size
+mysqli.cache_size = 2000
+
+; Default port number for mysqli_connect().  If unset, mysqli_connect() will use
+; the $MYSQL_TCP_PORT or the mysql-tcp entry in /etc/services or the
+; compile-time value defined MYSQL_PORT (in that order).  Win32 will only look
+; at MYSQL_PORT.
+; http://php.net/mysqli.default-port
+mysqli.default_port = 3306
+
+; Default socket name for local MySQL connects.  If empty, uses the built-in
+; MySQL defaults.
+; http://php.net/mysqli.default-socket
+mysqli.default_socket =
+
+; Default host for mysql_connect() (doesn't apply in safe mode).
+; http://php.net/mysqli.default-host
+mysqli.default_host =
+
+; Default user for mysql_connect() (doesn't apply in safe mode).
+; http://php.net/mysqli.default-user
+mysqli.default_user =
+
+; Default password for mysqli_connect() (doesn't apply in safe mode).
+; Note that this is generally a *bad* idea to store passwords in this file.
+; *Any* user with PHP access can run 'echo get_cfg_var("mysqli.default_pw")
+; and reveal this password!  And of course, any users with read access to this
+; file will be able to reveal the password as well.
+; http://php.net/mysqli.default-pw
+mysqli.default_pw =
+
+; Allow or prevent reconnect
+mysqli.reconnect = Off
+
+[mysqlnd]
+; Enable / Disable collection of general statistics by mysqlnd which can be
+; used to tune and monitor MySQL operations.
+; http://php.net/mysqlnd.collect_statistics
+mysqlnd.collect_statistics = On
+
+; Enable / Disable collection of memory usage statistics by mysqlnd which can be
+; used to tune and monitor MySQL operations.
+; http://php.net/mysqlnd.collect_memory_statistics
+mysqlnd.collect_memory_statistics = Off
+
+; Size of a pre-allocated buffer used when sending commands to MySQL in bytes.
+; http://php.net/mysqlnd.net_cmd_buffer_size
+;mysqlnd.net_cmd_buffer_size = 2048
+
+; Size of a pre-allocated buffer used for reading data sent by the server in
+; bytes.
+; http://php.net/mysqlnd.net_read_buffer_size
+;mysqlnd.net_read_buffer_size = 32768
+
+
+[Session]
+; Handler used to store/retrieve data.
+; http://php.net/session.save-handler
+session.save_handler = files
+
+; Argument passed to save_handler.  In the case of files, this is the path
+; where data files are stored. Note: Windows users have to change this
+; variable in order to use PHP's session functions.
+;
+; The path can be defined as:
+;
+;     session.save_path = "N;/path"
+;
+; where N is an integer.  Instead of storing all the session files in
+; /path, what this will do is use subdirectories N-levels deep, and
+; store the session data in those directories.  This is useful if
+; your OS has problems with many files in one directory, and is
+; a more efficient layout for servers that handle many sessions.
+;
+; NOTE 1: PHP will not create this directory structure automatically.
+;         You can use the script in the ext/session dir for that purpose.
+; NOTE 2: See the section on garbage collection below if you choose to
+;         use subdirectories for session storage
+;
+; The file storage module creates files using mode 600 by default.
+; You can change that by using
+;
+;     session.save_path = "N;MODE;/path"
+;
+; where MODE is the octal representation of the mode. Note that this
+; does not overwrite the process's umask.
+; http://php.net/session.save-path
+;session.save_path = "/tmp"
+
+; Whether to use strict session mode.
+; Strict session mode does not accept uninitialized session ID and regenerate
+; session ID if browser sends uninitialized session ID. Strict mode protects
+; applications from session fixation via session adoption vulnerability. It is
+; disabled by default for maximum compatibility, but enabling it is encouraged.
+; https://wiki.php.net/rfc/strict_sessions
+session.use_strict_mode = 0
+
+; Whether to use cookies.
+; http://php.net/session.use-cookies
+session.use_cookies = 1
+
+; http://php.net/session.cookie-secure
+;session.cookie_secure =
+
+; This option forces PHP to fetch and use a cookie for storing and maintaining
+; the session id. We encourage this operation as it's very helpful in combating
+; session hijacking when not specifying and managing your own session id. It is
+; not the be-all and end-all of session hijacking defense, but it's a good start.
+; http://php.net/session.use-only-cookies
+session.use_only_cookies = 1
+
+; Name of the session (used as cookie name).
+; http://php.net/session.name
+session.name = PHPSESSID
+
+; Initialize session on request startup.
+; http://php.net/session.auto-start
+session.auto_start = 0
+
+; Lifetime in seconds of cookie or, if 0, until browser is restarted.
+; http://php.net/session.cookie-lifetime
+session.cookie_lifetime = 0
+
+; The path for which the cookie is valid.
+; http://php.net/session.cookie-path
+session.cookie_path = /
+
+; The domain for which the cookie is valid.
+; http://php.net/session.cookie-domain
+session.cookie_domain =
+
+; Whether or not to add the httpOnly flag to the cookie, which makes it inaccessible to browser scripting languages such as JavaScript.
+; http://php.net/session.cookie-httponly
+session.cookie_httponly =
+
+; Handler used to serialize data.  php is the standard serializer of PHP.
+; http://php.net/session.serialize-handler
+session.serialize_handler = php
+
+; Defines the probability that the 'garbage collection' process is started
+; on every session initialization. The probability is calculated by using
+; gc_probability/gc_divisor. Where session.gc_probability is the numerator
+; and gc_divisor is the denominator in the equation. Setting this value to 1
+; when the session.gc_divisor value is 100 will give you approximately a 1% chance
+; the gc will run on any give request.
+; Default Value: 1
+; Development Value: 1
+; Production Value: 1
+; http://php.net/session.gc-probability
+session.gc_probability = 1
+
+; Defines the probability that the 'garbage collection' process is started on every
+; session initialization. The probability is calculated by using the following equation:
+; gc_probability/gc_divisor. Where session.gc_probability is the numerator and
+; session.gc_divisor is the denominator in the equation. Setting this value to 1
+; when the session.gc_divisor value is 100 will give you approximately a 1% chance
+; the gc will run on any give request. Increasing this value to 1000 will give you
+; a 0.1% chance the gc will run on any give request. For high volume production servers,
+; this is a more efficient approach.
+; Default Value: 100
+; Development Value: 1000
+; Production Value: 1000
+; http://php.net/session.gc-divisor
+session.gc_divisor = 1000
+
+; After this number of seconds, stored data will be seen as 'garbage' and
+; cleaned up by the garbage collection process.
+; http://php.net/session.gc-maxlifetime
+session.gc_maxlifetime = 1440
+
+; NOTE: If you are using the subdirectory option for storing session files
+;       (see session.save_path above), then garbage collection does *not*
+;       happen automatically.  You will need to do your own garbage
+;       collection through a shell script, cron entry, or some other method.
+;       For example, the following script would is the equivalent of
+;       setting session.gc_maxlifetime to 1440 (1440 seconds = 24 minutes):
+;          find /path/to/sessions -cmin +24 -type f | xargs rm
+
+; Check HTTP Referer to invalidate externally stored URLs containing ids.
+; HTTP_REFERER has to contain this substring for the session to be
+; considered as valid.
+; http://php.net/session.referer-check
+session.referer_check =
+
+; How many bytes to read from the file.
+; http://php.net/session.entropy-length
+;session.entropy_length = 32
+
+; Specified here to create the session id.
+; http://php.net/session.entropy-file
+; Defaults to /dev/urandom
+; On systems that don't have /dev/urandom but do have /dev/arandom, this will default to /dev/arandom
+; If neither are found at compile time, the default is no entropy file.
+; On windows, setting the entropy_length setting will activate the
+; Windows random source (using the CryptoAPI)
+;session.entropy_file = /dev/urandom
+
+; Set to {nocache,private,public,} to determine HTTP caching aspects
+; or leave this empty to avoid sending anti-caching headers.
+; http://php.net/session.cache-limiter
+session.cache_limiter = nocache
+
+; Document expires after n minutes.
+; http://php.net/session.cache-expire
+session.cache_expire = 180
+
+; trans sid support is disabled by default.
+; Use of trans sid may risk your users' security.
+; Use this option with caution.
+; - User may send URL contains active session ID
+;   to other person via. email/irc/etc.
+; - URL that contains active session ID may be stored
+;   in publicly accessible computer.
+; - User may access your site with the same session ID
+;   always using URL stored in browser's history or bookmarks.
+; http://php.net/session.use-trans-sid
+session.use_trans_sid = 0
+
+; Select a hash function for use in generating session ids.
+; Possible Values
+;   0  (MD5 128 bits)
+;   1  (SHA-1 160 bits)
+; This option may also be set to the name of any hash function supported by
+; the hash extension. A list of available hashes is returned by the hash_algos()
+; function.
+; http://php.net/session.hash-function
+session.hash_function = 0
+
+; Define how many bits are stored in each character when converting
+; the binary hash data to something readable.
+; Possible values:
+;   4  (4 bits: 0-9, a-f)
+;   5  (5 bits: 0-9, a-v)
+;   6  (6 bits: 0-9, a-z, A-Z, "-", ",")
+; Default Value: 4
+; Development Value: 5
+; Production Value: 5
+; http://php.net/session.hash-bits-per-character
+session.hash_bits_per_character = 5
+
+; The URL rewriter will look for URLs in a defined set of HTML tags.
+; form/fieldset are special; if you include them here, the rewriter will
+; add a hidden <input> field with the info which is otherwise appended
+; to URLs.  If you want XHTML conformity, remove the form entry.
+; Note that all valid entries require a "=", even if no value follows.
+; Default Value: "a=href,area=href,frame=src,form=,fieldset="
+; Development Value: "a=href,area=href,frame=src,input=src,form=fakeentry"
+; Production Value: "a=href,area=href,frame=src,input=src,form=fakeentry"
+; http://php.net/url-rewriter.tags
+url_rewriter.tags = "a=href,area=href,frame=src,input=src,form=fakeentry"
+
+; Enable upload progress tracking in $_SESSION
+; Default Value: On
+; Development Value: On
+; Production Value: On
+; http://php.net/session.upload-progress.enabled
+;session.upload_progress.enabled = On
+
+; Cleanup the progress information as soon as all POST data has been read
+; (i.e. upload completed).
+; Default Value: On
+; Development Value: On
+; Production Value: On
+; http://php.net/session.upload-progress.cleanup
+;session.upload_progress.cleanup = On
+
+; A prefix used for the upload progress key in $_SESSION
+; Default Value: "upload_progress_"
+; Development Value: "upload_progress_"
+; Production Value: "upload_progress_"
+; http://php.net/session.upload-progress.prefix
+;session.upload_progress.prefix = "upload_progress_"
+
+; The index name (concatenated with the prefix) in $_SESSION
+; containing the upload progress information
+; Default Value: "PHP_SESSION_UPLOAD_PROGRESS"
+; Development Value: "PHP_SESSION_UPLOAD_PROGRESS"
+; Production Value: "PHP_SESSION_UPLOAD_PROGRESS"
+; http://php.net/session.upload-progress.name
+;session.upload_progress.name = "PHP_SESSION_UPLOAD_PROGRESS"
+
+; How frequently the upload progress should be updated.
+; Given either in percentages (per-file), or in bytes
+; Default Value: "1%"
+; Development Value: "1%"
+; Production Value: "1%"
+; http://php.net/session.upload-progress.freq
+;session.upload_progress.freq =  "1%"
+
+; The minimum delay between updates, in seconds
+; Default Value: 1
+; Development Value: 1
+; Production Value: 1
+; http://php.net/session.upload-progress.min-freq
+;session.upload_progress.min_freq = "1"

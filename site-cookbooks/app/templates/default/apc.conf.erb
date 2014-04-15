@@ -1,0 +1,17 @@
+Alias /apc /srv/www/apc
+<Directory /srv/www/apc>
+        DirectoryIndex apc.php
+        Order deny,allow
+        Deny from all
+        Allow from localhost 127.0.0.0/8 ::1 
+        Options None
+
+        AuthUserFile /etc/apc/htpassword
+        AuthName "Password protected"
+        AuthType Basic
+        Require valid-user
+
+    # Allow password-less access for allowed IPs
+    Satisfy any
+
+</Directory> 
