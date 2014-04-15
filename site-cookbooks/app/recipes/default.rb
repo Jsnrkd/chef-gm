@@ -9,7 +9,7 @@
 
 
 include_recipe "apt"
-include_recipe "unattended-upgrades"
+include_recipe "chef-unattended-upgrades"
 include_recipe "ntp"
 include_recipe "openssh"
 include_recipe "sudo"
@@ -65,7 +65,7 @@ include_recipe 'app::packages'
 include_recipe 'app::apache'
 include_recipe 'ufw'
 include_recipe 'fail2ban'
-include_recipe 'chef-s3cmd2'
+include_recipe 's3cmd'
 include_recipe 'app::bb_deploy_user'
 include_recipe 'app::mysql'
 
