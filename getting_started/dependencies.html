@@ -2,7 +2,7 @@
 
 <html lang="en">
   <head>
-    <title>Dependencies</title>
+    <title>Chef-gm Dependencies</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +20,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>Dependencies</h1>
+      <h1>Chef-gm Dependencies</h1>
 
 
   <p class="lead">
@@ -35,38 +35,40 @@
 
 <div class="row">
   <div class="col-lg-3 col-md-3">
-    <ul class="nav-toc"><li class="nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/index.html">Chef-gm</a><ul class="nav-toc-menu"></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/getting_started/index.html">Getting Started</a><ul class="active nav-toc-menu"><li class="active"><a href="/chef-gm/getting_started/dependencies.html">Dependencies</a></li></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/servers/index.html">Provisioning</a><ul class="nav-toc-menu"><li><a href="/chef-gm/servers/environments.html">Chef Solo Environments</a></li><li><a href="/chef-gm/servers/provision_rackspace.html">Provisioning Rackspace</a></li><li><a href="/chef-gm/servers/provision_digital_ocean.html">Provisioning Digital Ocean</a></li></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/database/index.html">Database</a><ul class="nav-toc-menu"><li><a href="/chef-gm/database/faker.html">Anonymize Dataset</a></li></ul></li></ul>
+    <ul class="nav-toc"><li class="nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/index.html">Chef-gm</a><ul class="nav-toc-menu"></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/getting_started/index.html">Getting Started</a><ul class="active nav-toc-menu"><li class="active"><a href="/chef-gm/getting_started/dependencies.html">Chef-gm Dependencies</a></li></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/servers/index.html">Provisioning</a><ul class="nav-toc-menu"><li><a href="/chef-gm/servers/environments.html">Chef Solo Environments</a></li><li><a href="/chef-gm/servers/provision_rackspace.html">Provisioning Rackspace</a></li><li><a href="/chef-gm/servers/provision_digital_ocean.html">Provisioning Digital Ocean</a></li></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/database/index.html">Database</a><ul class="nav-toc-menu"><li><a href="/chef-gm/database/faker.html">Anonymize Dataset</a></li></ul></li></ul>
   </div>
   <div id="content" class="col-lg-9 col-md-9">
     <p><em>Updated: April 14, 2014 </em></p>
-    <p>To use this workflow, you’ll need to have some dependencies installed.  If you run into problems, double check the software versions for compatibility.</p>
-
-<p>OSX 
-Tested on 10.9.2, 4/1/2014</p>
+    <p>To use this workflow, you’ll need to have some dependencies installed.  In addition to the Chef-gm dependencies, I’ve included some additional packages that you should consider for your local development environment. If you run into problems, double check the software versions for compatibility.</p>
 
 <h1 id="development-environment">Development Environment</h1>
 
 <p>The next steps will guide you through an automated development environment that has been configured using Vagrant and Chef-Solo to run in an Ubuntu virtual machine closely matching production.  When you are finished, your development environment will have high parity with production and other developers’ environments.  You should also be able to get up and ready to develop in about an hour of beginning this tutorial.</p>
 
-<h3 id="dependencies">Dependencies</h3>
+<h3 id="chef-gm-dependencies">Chef-gm Dependencies</h3>
+
+<p>These were tested on OSX 10.9.2 on 4/16/2014.  Alternative package versions are likely to behave if you choose.</p>
+
 <ul>
-  <li>Ruby 2.x &gt;= (<a href="https://rvm.io/">RVM</a> recommended) 
-    <ul>
-      <li>(Gems: Capistrano 3.x &gt;=, berkshelf 3.x &gt;= )</li>
-    </ul>
-  </li>
-  <li><a href="https://www.virtualbox.org/wiki/Downloads">Virtual Box</a></li>
-  <li><a href="http://vagrantup.com">Vagrant</a> 1.4.x &gt;= 
-    <ul>
-      <li>Plugins: <a href="https://github.com/berkshelf/vagrant-berkshelf">vagrant-berkshelf</a>, <a href="https://github.com/smdahlen/vagrant-hostmanager">vagrant-hostmanager</a></li>
-    </ul>
-  </li>
-  <li>git 1.8.x &gt;=</li>
+  <li>Ruby 2.1.0 (<a href="https://rvm.io/">RVM</a> recommended) </li>
+  <li><a href="http://capistranorb.com/">Capistrano</a> 3.1.x </li>
+  <li><a href="http://berkshelf.com">berkshelf</a> 3.0.x </li>
+  <li><a href="https://www.virtualbox.org/wiki/Downloads">Virtual Box</a> 4.3.10</li>
+  <li><a href="http://vagrantup.com">Vagrant</a> 1.5.x </li>
+  <li><a href="https://github.com/berkshelf/vagrant-berkshelf">vagrant-berkshelf</a> 2.0.0</li>
+  <li><a href="https://github.com/smdahlen/vagrant-hostmanager">vagrant-hostmanager</a> 1.4.0</li>
+  <li><a href="https://github.com/schisamo/vagrant-omnibus">vagrant-omnibus</a>vagrant 1.3.1</li>
+  <li>git 1.8.x</li>
+</ul>
+
+<h3 id="optional-packages-">Optional Packages *</h3>
+
+<ul>
+  <li>Bundler</li>
+  <li>Homebrew</li>
 </ul>
 
 <h3 id="install-dependencies">Install Dependencies</h3>
-
-<p>The following applies to OSX 10.9 &gt;=</p>
 
 <h5 id="osx-developer-tools">OSX Developer Tools</h5>
 
@@ -83,31 +85,54 @@ $ \curl -sSL https://get.rvm.io | bash -s stable
 
 <p>Configure RVM if necessary.</p>
 
-<h5 id="install-packages-for-chefhttpdocsopscodecominstallworkstationhtml">Install Packages for <a href="http://docs.opscode.com/install_workstation.html">Chef</a></h5>
+<h5 id="chefhttpdocsopscodecominstallworkstationhtml-and-knife"><a href="http://docs.opscode.com/install_workstation.html">Chef</a> and Knife</h5>
+
+<pre><code>$ curl -L https://www.opscode.com/chef/install.sh | sudo bash
+# verify installation
+$ chef-client -v
+</code></pre>
+
+<h5 id="bundler-">Bundler *</h5>
+
+<pre><code>$ gem install bundler --no-ri --no-rdoc
+</code></pre>
 
 <h5 id="gems">Gems</h5>
 
 <p><a href="http://berkshelf.com">Berkshelf</a> - Chef cookbook dependency manager
 <a href="http://capistranorb.com/documentation/getting-started/installation/">Capistrano</a> - Application Deployment</p>
 
-<pre><code>$ gem install berkshelf
-# If this hangs, kill the process and rerun the command.
+<p>If you installed Bundler</p>
 
-$ gem install capistrano
+<pre><code>$ cd {project-dir}
+$ bundle install
+</code></pre>
+
+<p>else</p>
+
+<pre><code>$ gem install knife-solo berkshelf foodcritic capistrano --no-ri --no-rdoc
 </code></pre>
 
 <h5 id="vagrant-plugins">Vagrant Plugins</h5>
 
 <pre><code>$ vagrant plugin install vagrant-hostmanager
-$ vagrant plugin install vagrant-berkshelf
+$ vagrant plugin install vagrant-berkshelf --plugin-version 2.0.0.rc3
+$ vagrant plugin install vagrant-omnibus
 </code></pre>
 
-<h5 id="homebrewhttpbrewsh"><a href="http://brew.sh/">homebrew</a></h5>
+<h5 id="knife-plugins">Knife plugins*</h5>
+
+<p>If you plan to provision on Digital ocean:</p>
+
+<pre><code>$ gem install knife-digital_ocean --no-ri --no-rdoc
+</code></pre>
+
+<h5 id="homebrewhttpbrewsh-"><a href="http://brew.sh/">homebrew</a> *</h5>
 
 <pre><code>ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 </code></pre>
 
-<h5 id="composerhttpsgetcomposerorg"><a href="https://getcomposer.org/">composer</a></h5>
+<h5 id="composerhttpsgetcomposerorg-"><a href="https://getcomposer.org/">composer</a> *</h5>
 
 <pre><code>$ brew tap josegonzalez/homebrew-php
 $ brew install josegonzalez/php/composer
@@ -118,6 +143,7 @@ $ brew install josegonzalez/php/composer
 <pre><code>$ brew install php54-intl
 </code></pre>
 
+<p><em>* denotes optional but recommended for your future convenience</em></p>
 
 
     <ul class="nav-pager"><li><a class="btn btn-primary" href="/getting_started/index.html">&laquo; Prev</a></li><li><a class="btn btn-primary" href="/servers/index.html">Next &raquo;</a></li></ul>

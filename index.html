@@ -35,13 +35,57 @@
 
 <div class="row">
   <div class="col-lg-3 col-md-3">
-    <ul class="nav-toc"><li class="active nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/index.html">Chef-gm</a><ul class="active nav-toc-menu"></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/getting_started/index.html">Getting Started</a><ul class="nav-toc-menu"><li><a href="/chef-gm/getting_started/dependencies.html">Dependencies</a></li></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/servers/index.html">Provisioning</a><ul class="nav-toc-menu"><li><a href="/chef-gm/servers/environments.html">Chef Solo Environments</a></li><li><a href="/chef-gm/servers/provision_rackspace.html">Provisioning Rackspace</a></li><li><a href="/chef-gm/servers/provision_digital_ocean.html">Provisioning Digital Ocean</a></li></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/database/index.html">Database</a><ul class="nav-toc-menu"><li><a href="/chef-gm/database/faker.html">Anonymize Dataset</a></li></ul></li></ul>
+    <ul class="nav-toc"><li class="active nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/index.html">Chef-gm</a><ul class="active nav-toc-menu"></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/getting_started/index.html">Getting Started</a><ul class="nav-toc-menu"><li><a href="/chef-gm/getting_started/dependencies.html">Chef-gm Dependencies</a></li></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/servers/index.html">Provisioning</a><ul class="nav-toc-menu"><li><a href="/chef-gm/servers/environments.html">Chef Solo Environments</a></li><li><a href="/chef-gm/servers/provision_rackspace.html">Provisioning Rackspace</a></li><li><a href="/chef-gm/servers/provision_digital_ocean.html">Provisioning Digital Ocean</a></li></ul></li><li class="nav-toc-group"><a class="nav-toc-heading" href="/chef-gm/database/index.html">Database</a><ul class="nav-toc-menu"><li><a href="/chef-gm/database/faker.html">Anonymize Dataset</a></li></ul></li></ul>
   </div>
   <div id="content" class="col-lg-9 col-md-9">
     <p><em>Updated: April 14, 2014 </em></p>
     <h1 id="overview">Overview</h1>
 
 <p>Chef-gm (general manager) is a workflow and boilerplate for developing web applications.  Its core is a combination of concepts built on Chef Solo, Vagrant and Knife for getting past the Chef learning curve.  The boilerplate is a set of scripted sysadmin tasks that automate your team’s development and production environments.  The workflow gives you some practical use cases and encourages further automation. Fork the <a href="https://github.com/Jsnrkd/chef-gm">Chef-gm</a> repository to get started.</p>
+
+<h1 id="details">Details</h1>
+
+<p>A development to production workflow using</p>
+
+<ul>
+  <li>Git</li>
+  <li>Ruby</li>
+  <li>Ubuntu 12.04</li>
+  <li>Chef Solo</li>
+  <li>Vagrant</li>
+  <li>Virtual Box</li>
+  <li>Knife</li>
+  <li>Berkshelf</li>
+  <li>Capistrano</li>
+</ul>
+
+<h1 id="configured-packages">Configured Packages</h1>
+
+<ul>
+  <li>Apache</li>
+  <li>PHP</li>
+  <li>MySQL</li>
+  <li>s3mcmd</li>
+  <li>NTP</li>
+  <li>Fail2ban</li>
+  <li>UFW</li>
+  <li>OpenSSH</li>
+  <li>Unattended-upgrades</li>
+  <li>Swap</li>
+</ul>
+
+<h1 id="specs">Specs</h1>
+
+<p>Tested with</p>
+
+<ul>
+  <li>Ubuntu 12.04 64 bit</li>
+  <li>Vagrant 1.5.3</li>
+  <li>Virtual Box 4.3.10</li>
+  <li>Berkshelf 3.0.1</li>
+  <li>Chef 11.10.4</li>
+  <li>Ruby 2.1.0p0</li>
+</ul>
 
 <h1 id="features">Features</h1>
 
@@ -80,37 +124,6 @@
   <li>Nginx swappable recipe for apache</li>
   <li>Event logging with Sentry</li>
   <li>More use cases and tutorials</li>
-</ul>
-
-<h1 id="details">Details</h1>
-
-<p>A development to production workflow using</p>
-
-<ul>
-  <li>Git</li>
-  <li>Ruby</li>
-  <li>Ubuntu 12.04</li>
-  <li>Chef Solo</li>
-  <li>Vagrant</li>
-  <li>Virtual Box</li>
-  <li>Knife</li>
-  <li>Berkshelf</li>
-  <li>Capistrano</li>
-</ul>
-
-<h1 id="configured-packages">Configured Packages</h1>
-
-<ul>
-  <li>Apache</li>
-  <li>PHP</li>
-  <li>MySQL</li>
-  <li>s3mcmd</li>
-  <li>NTP</li>
-  <li>Fail2ban</li>
-  <li>UFW</li>
-  <li>OpenSSH</li>
-  <li>Unattended-upgrades</li>
-  <li>Swap</li>
 </ul>
 
 <h1 id="benefits">Benefits</h1>
